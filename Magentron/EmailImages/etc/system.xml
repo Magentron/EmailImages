@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *	Magentron EmailImages Extension
+ *
+ *	@category	Magentron
+ *	@package	Magentron_EmailImages
+ *	@author		Jeroen Derks
+ *	@copyright	Copyright (c) 2011 Jeroen Derks http://www.magentron.com
+ *	@license	http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+	<sections>
+		<system>
+			<groups>
+				<emailimages translate="label comment" module="emailimages">
+					<label>Email Images</label>
+					<comment><![CDATA[
+						<div style="width:100%; padding:10px 32px 6px 10px; margin:-16px 0px 10px -21px; cursor:pointer; background:url(http://www.magentron.com/skin/frontend/magentron/default/images/background-top.jpg) no-repeat scroll -315px -40px #000000;"
+								onclick="var w = window.open('http://www.magentron.com/', 'magentron'); w.focus(); return false;"
+								title="Magentron | Magento blog, tips, extensions and solutions">
+							<a href="http://www.magentron.com/" target="magentron">
+								<img src="http://www.magentron.com/skin/frontend/magentron/default/images/magentron-logo.png" alt="Magentron" border="0" /></a>
+						</div>
+						<div style="width:740px;">
+							This extension allows images that are used in the email (HTML) content to be attached to the
+							email so that they are displayed as expected without having to depend on the user to click
+							a button like 'Show Remote Content' to display these images.<br />
+							Obvious advantage is that it is more probable that the email is rendered as you would expect,
+							obvious disadvantage is that the emails sent are bigger in size because they include the
+							attached images. It is up to you to use properly sized images.<br />
+							NB: Currently not all email readers support the CSS background-image url functionality.<br />
+							NB: This extension currently does not work properly with other modules that override email
+							behavior such as <a href="http://www.magentocommerce.com/extension/1865" target="_blank">ASchroder_SMTPPro</a> and the likes!<br />
+							This is due to the architecture of Magento, and we are open to work with the creators of these
+							extensions to integrate EmailImages.
+						</div>
+					]]></comment>
+					<frontend_type>text</frontend_type>
+					<sort_order>1000</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>0</show_in_website>
+					<show_in_store>0</show_in_store>
+					<fields>
+						<enable translate="label comment">
+							<label>Attach images to emails</label>
+							<comment><![CDATA[
+								Do you want to attach images to the email?<br />
+								NB: images are retrieved using <a href="http://www.php.net/file_get_contents" target="php-manual">file_get_contents()</a>
+							]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</enable>
+						<cache_time translate="label comment">
+							<label>Time to cache images</label>
+							<comment><![CDATA[
+								How long will a cached copy be used if present?  
+							]]></comment>
+							<tooltip>seconds</tooltip>
+							<frontend_type>text</frontend_type>
+							<validate>validate-not-negative-number</validate>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends>
+								<enable>1</enable>
+							</depends>
+						</cache_time>
+						<regexp translate="label comment">
+							<label>Regular expression</label>
+							<comment><![CDATA[
+								This regular expression is passed to <a href="http://www.php.net/preg_match_all" target="php-manual">preg_match_all()</a> and the strings in match with index as indicated below are used as the URLs to attach.<br />
+								The default value looks for '&lt;img src="..."' and 'image:url(...)'.<br />
+								NB: this allows fine-tuning, but needs to be tested properly before put on a production environment!<br /><strong>Use at your own risk!</strong> 
+							]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends>
+								<enable>1</enable>
+							</depends>
+						</regexp>
+						<regexp_index translate="label comment">
+							<label>Regular expression match index</label>
+							<comment>The match with this index is used as the array of URLs to retrieve and attach as an image.</comment>
+							<frontend_type>text</frontend_type>
+							<validate>validate-not-negative-number</validate>
+							<sort_order>101</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+							<depends>
+								<enable>1</enable>
+							</depends>
+						</regexp_index>
+					</fields>
+				</emailimages>
+			</groups>
+		</system>
+	</sections>
+</config>

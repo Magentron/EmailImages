@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ *	Magentron EmailImages Extension
+ *
+ *	@category	Magentron
+ *	@package	Magentron_EmailImages
+ *	@author		Jeroen Derks
+ *	@copyright	Copyright (c) 2011 Jeroen Derks http://www.magentron.com
+ *	@license	http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Magentron_EmailImages>
+            <version>0.9.1</version>
+        </Magentron_EmailImages>
+    </modules>
+<!--
+    <frontend>
+        <routers>
+            <emailimages>
+                <use>standard</use>
+                <args>
+                    <module>Magentron_EmailImages</module>
+                    <frontName>emailimages</frontName>
+                </args>
+            </emailimages>
+        </routers>
+        <layout>
+            <updates>
+                <emailimages>
+                    <file>emailimages.xml</file>
+                </emailimages>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<emailimages>
+				<use>admin</use>
+				<args>
+					<module>Magentron_EmailImages</module>
+					<frontName>emailimages</frontName>
+				</args>
+			</emailimages>
+        </routers>
+    </admin>
+ -->
+    <adminhtml>
+<!-- 
+		<menu>
+			<emailimages module="emailimages">
+				<title>EmailImages</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="emailimages">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>emailimages/adminhtml_emailimages</action>
+					</items>
+				</children>
+			</emailimages>
+		</menu>
+ -->
+		<acl>
+			<resources>
+<!-- 
+				<all>
+					<title>Allow Everything</title>
+				</all>
+ -->
+				<admin>
+					<children>
+<!--
+						<Magentron_EmailImages>
+							<title>EmailImages Module</title>
+							<sort_order>10</sort_order>
+						</Magentron_EmailImages>
+  -->
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <email_images>
+                                            <title>Email Images</title>
+                                        </email_images>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+<!-- 
+		<layout>
+			<updates>
+				<emailimages>
+					<file>emailimages.xml</file>
+				</emailimages>
+			</updates>
+		</layout>
+ -->
+    </adminhtml>   
+    <global>
+        <models>
+			<newsletter>
+				<rewrite>
+					<template>Magentron_EmailImages_Model_Newsletter_Template</template>
+				</rewrite>
+			</newsletter>
+			<core>
+				<rewrite>
+					<email>Magentron_EmailImages_Model_Email</email>
+					<email_template>Magentron_EmailImages_Model_Email_Template</email_template>
+				</rewrite>
+			</core>
+            <emailimages>
+                <class>Magentron_EmailImages_Model</class>
+            </emailimages>
+<!--
+            <emailimages>
+                <class>Magentron_EmailImages_Model</class>
+                <resourceModel>emailimages_mysql4</resourceModel>
+            </emailimages>
+            <emailimages_mysql4>
+                <class>Magentron_EmailImages_Model_Mysql4</class>
+                <entities>
+                    <emailimages>
+                        <table>emailimages</table>
+                    </emailimages>
+                </entities>
+            </emailimages_mysql4>
+-->
+        </models>
+<!--
+        <resources>
+            <emailimages_setup>
+                <setup>
+                    <module>Magentron_EmailImages</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </emailimages_setup>
+            <emailimages_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </emailimages_write>
+            <emailimages_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </emailimages_read>
+        </resources>
+        <blocks>
+            <emailimages>
+                <class>Magentron_EmailImages_Block</class>
+            </emailimages>
+        </blocks>
+ -->
+        <helpers>
+            <emailimages>
+                <class>Magentron_EmailImages_Helper</class>
+            </emailimages>
+        </helpers>
+        <cache>
+        	<types>
+        		<emailimages>
+        			<label>Email Images Cache</label>
+        			<description>Images that were automatically attached to emails by extension EmailImages.</description>
+        			<tags>MAGENTRON_EMAILIMAGES</tags>
+        		</emailimages>
+        	</types>
+        </cache>
+    </global>
+    
+    <phpunit>
+        <suite>
+            <modules>
+                 <Magentron_EmailImages />
+            </modules>
+        </suite>
+    </phpunit>
+    
+    <default>
+    	<system>
+	   		<emailimages>
+	   			<enable>0</enable>
+	   			<cache_time>86400</cache_time>
+	   			<regexp><![CDATA[/(<[iI][mM][gG] [sS][rR][cC]="|image:url\('?)([^'"\)]*)(["'\)])/]]></regexp>
+	   			<regexp_index>2</regexp_index>
+	   		</emailimages>
+    	</system>
+    </default>
+</config>
