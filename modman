@@ -10,5 +10,5 @@
 # module enablement
 Magentron/EmailImages/modules/Magentron_EmailImages.xml	app/etc/modules/Magentron_EmailImages.xml
 # add Magento local overrides
-Magentron/EmailImages									app/code/local/Magentron/EmailImages
+Magentron/EmailImages									app/code/community/Magentron/EmailImages
 # vim: set ts=4 sts=4:
