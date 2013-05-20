@@ -190,7 +190,7 @@
 	   		<emailimages>
 	   			<enable>0</enable>
 	   			<cache_time>86400</cache_time>
-	   			<regexp><![CDATA[/(<[iI][mM][gG] [sS][rR][cC]="|image:url\('?)([^'"\)]*)(["'\)])/]]></regexp>
+	   			<regexp><![CDATA[/((<[iI][mM][gG] [sS][rR][cC]|[Bb][Aa][Cc][Kk][Gg][Rr][Oo][Uu][Nn][Dd])="|image:url\('?)([^'"\)]*)(["'\)])/]]></regexp>
 	   			<regexp_index>2</regexp_index>
 	   		</emailimages>
     	</system>
