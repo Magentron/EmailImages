@@ -20,7 +20,7 @@ class Magentron_EmailImages_Model_Newsletter_Template extends Mage_Newsletter_Mo
 	public function getMail()
 	{
         if (is_null($this->_mail)) {
-            $this->_mail = Mage::getModel('emailimages/mail', array('utf-8'));
+            $this->_mail = Mage::getModel('emailimages/mail', 'utf-8');
         }
         return $this->_mail;
 	}
