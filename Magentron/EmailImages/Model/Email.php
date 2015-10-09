@@ -1,12 +1,12 @@
 <?php
 /**
- *	Magentron EmailImages Extension
+ *  Magentron EmailImages Extension
  *
- *	@category	Magentron
- *	@package	Magentron_EmailImages
- *	@author		Jeroen Derks
- *	@copyright	Copyright (c) 2011 Jeroen Derks http://www.magentron.com
- *	@license	http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *  @category   Magentron
+ *  @package    Magentron_EmailImages
+ *  @author     Jeroen Derks
+ *  @copyright  Copyright (c) 2011 Jeroen Derks http://www.magentron.com
+ *  @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Magentron_EmailImages_Model_Email extends Mage_Core_Model_Email
 {
@@ -17,11 +17,11 @@ class Magentron_EmailImages_Model_Email extends Mage_Core_Model_Email
         }
 
         /** @TODO check if it would be safe to set template as context on mail instance */
-        /** @var	$mail	Magentron_EmailImages_Model_Mail */
+        /** @var    $mail   Magentron_EmailImages_Model_Mail */
         $mail = Mage::getModel('emailimages/mail');
 
         if (strtolower($this->getType()) == 'html') {
-        	$mail->setBodyHtml($this->getBody());
+            $mail->setBodyHtml($this->getBody());
         }
         else {
             $mail->setBodyText($this->getBody());

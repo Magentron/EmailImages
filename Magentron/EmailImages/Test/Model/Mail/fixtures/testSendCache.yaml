@@ -1,17 +1,17 @@
 #
-#	Magentron EmailImages Extension
+#   Magentron EmailImages Extension
 #
-#	@category	Magentron
-#	@package	Magentron_EmailImages
-#	@author		Jeroen Derks
-#	@copyright	Copyright (c) 2011 Jeroen Derks http://www.magentron.com
-#	@license	http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+#   @category   Magentron
+#   @package    Magentron_EmailImages
+#   @author     Jeroen Derks
+#   @copyright  Copyright (c) 2011 Jeroen Derks http://www.magentron.com
+#   @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
 #
 
 config:
-	default/system/emailimages/enable:			1
-	default/test/emailimages/use_cache:			1
-	default/trans_email/ident_general/email:	general@does.not.exist
-	default/trans_email/ident_general/name:		General Email Address
-	default/trans_email/ident_support/email:	support@does.not.exist
-	default/trans_email/ident_support/name:		Support Email Address
+    default/system/emailimages/enable:          1
+    default/test/emailimages/use_cache:         1
+    default/trans_email/ident_general/email:    general@does.not.exist
+    default/trans_email/ident_general/name:     General Email Address
+    default/trans_email/ident_support/email:    support@does.not.exist
+    default/trans_email/ident_support/name:     Support Email Address
