@@ -5,7 +5,7 @@
  *  @category   Magentron
  *  @package    Magentron_EmailImages
  *  @author     Jeroen Derks
- *  @copyright  Copyright (c) 2011 Jeroen Derks http://www.magentron.com
+ *  @copyright  Copyright (c) 2011-2015 Jeroen Derks http://www.magentron.com
  *  @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Magentron_EmailImages_Test_Model_Email extends EcomDev_PHPUnit_Test_Case
